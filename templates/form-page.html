@@ -5,10 +5,10 @@
 
 <h1>Foreign Currency Exchange Form</h1>
 <form action="/results" method="POST">
-    <!-- placeholder form for testing -->
-  <input type="text" placeholder="your name" name="username">
-  <label for="compliments">Do you want compliments?</label>
-  <input id="compliments" type="checkbox" name="wants_compliments">
-  <button>Submit!</button>
+    <p><label for="curr_from">Currency from: <input pattern="[A-Z]" title="3 uppercase letters" minlength="3" maxlength="3" required id="curr_from" type="text" name="curr_from"/></label></p>
+    <p><label for="curr_to">Currency to: <input pattern="[A-Z]" title="3 uppercase letters" maxlength="3" required id="curr_to" type="text" name="curr_to"/></label></p>
+    <p><label for="amount">Amount: <input required id="amount" type="number" name="amount"/></label></p>
+
+    <button>Submit!</button>
 </form>
 {% endblock %}

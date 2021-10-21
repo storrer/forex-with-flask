@@ -1,5 +1,5 @@
 # Christopher Storrer's Assessment
-from flask import Flask, request, render_template
+from flask import Flask, request, render_template, flash, session
 # Our currency rate getter
 from forex_python.converter import CurrencyRates
 """ Usage Examples from forex-python.readthedocs.io
@@ -7,9 +7,6 @@ from forex_python.converter import CurrencyRates
         >>> c.get_rates('USD')   # you can directly call get_rates('USD')
         {u'IDR': 13625.0, u'BGN': 1.7433, ...}
         get_rates
-
-
-
 """
 
 # remove later
@@ -34,6 +31,8 @@ valid_currency_codes = ["EUR", "IDR", "BGN", "ILS", "GBP", "DKK", "CAD",
 @app.route("/")
 def homepage_form():
     """Shows the homepage with the foreign currency converter form."""
+    # Exception that must be removed later, here for debugging only
+    #raise
     return render_template("form-page.html")
 
 @app.route("/results", methods= ["POST"])
