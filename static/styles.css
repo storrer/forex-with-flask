@@ -1,1 +1,29 @@
 /* Static file for styles to be applied to all HTML */
+
+
+.results{
+    background-color: #F7F7F9;
+    border: 1px solid #ccc;
+}
+.msg{
+    background-color: chartreuse;
+
+}
+label
+ {
+   display:block;
+   margin:10px 0;
+}
+button span{
+    display:inline-block;
+}
+
+label span
+ {
+   display:inline-block;
+   text-align:right;
+   width:100px;
+}
+h1, button{
+    background-color: lightblue;
+}

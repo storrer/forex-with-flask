@@ -2,6 +2,14 @@
 {% block title %}Currency Exchange Results{% endblock %}
 
 {% block content %}
-<!-- placeholder template -->
+{% for msg in get_flashed_messages() %}
+<div class="msg"><p>{{msg}}</p></div>
+{%endfor %}
+<div class="results">
 <h1>Currency Exchange Results:</h1>
+<p>Start Currency: {{results['curr_from_symbol']}} {{results['start_amount']}} {{results['curr_from_name']}}</p>
+<p>New Currency: {{results['curr_to_symbol']}} {{results["value_in_new_currency"]}} {{results['curr_to_name']}}</p>
+</div>
+<a href="/">Convert more currency</a>
+
 {% endblock %}

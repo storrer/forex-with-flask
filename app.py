@@ -1,31 +1,20 @@
 # Christopher Storrer's Assessment
-from flask import Flask, request, render_template, flash, session
-# Our currency rate getter
-from forex_python.converter import CurrencyRates
-""" Usage Examples from forex-python.readthedocs.io
-        >>> c = CurrencyRates()
-        >>> c.get_rates('USD')   # you can directly call get_rates('USD')
-        {u'IDR': 13625.0, u'BGN': 1.7433, ...}
-        get_rates
-"""
-
+from flask import Flask, request, render_template, flash, session, redirect
+from rates_and_codes import convert_currency, validate_user_input
 # remove later
 from flask_debugtoolbar import DebugToolbarExtension
 app = Flask(__name__)
 app.config['SECRET_KEY'] = "oh-so-secret"
-
+app.config["DEBUG_TB_INTERCEPT_REDIRECTS"] = False
 debug = DebugToolbarExtension(app)
 
 
 
+RESULTS = {}
 
 # List of valid currency codes for form validation
 # if code not in valid_currency_codes then raise exception
-valid_currency_codes = ["EUR", "IDR", "BGN", "ILS", "GBP", "DKK", "CAD",
-                        "JPY", "HUF", "RON", "MYR", "SEK", "SGD", "HKD",
-                        "AUD", "CHF", "KRW", "CNY", "TRY", "HRK", "NZD",
-                        "THB", "USD", "NOK", "RUB", "INR", "MXN", "CZK",
-                        "BRL", "PLN", "PHP", "ZAR"]
+
 
 
 @app.route("/")
@@ -35,8 +24,23 @@ def homepage_form():
     #raise
     return render_template("form-page.html")
 
-@app.route("/results", methods= ["POST"])
-def results_page():
-    """"Displays the results of the currency conversion process."""
+@app.route("/calculate", methods= ["POST"])
+def evaluate_currency():
+    """Calclulate the results using rates_and_codes.py"""
+    # curr_from, curr_to, amount
+    from_currency = request.form['curr_from']
+    to_currency = request.form['curr_to']
+    if validate_user_input(from_currency, to_currency):
+        flash("Converting your chosen currencies: ")
+    else:
+        flash("Please use a valid currrency code.")
+        return render_template("form-page.html")
+    amount = request.form['amount']
+    RESULTS = convert_currency(from_currency, to_currency, amount)
+   
+    #return redirect("/results")
+    return render_template("results-page.html",results=RESULTS)
 
-    return render_template("results-page.html")
+#@app.route("/results")
+#def display_results():
+#    """Display the results of the currency conversion process"""
