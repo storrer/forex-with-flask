@@ -33,3 +33,6 @@ reference image `"form.png"`
 Write tests for your Flask routes and any other functions you write.
 
 It will take a bit of creative thinking on how to test this — after all, coversion rates between currencies change, so it wouldn’t be a good idea to have a code that makes sure $100 becomes €85.16. Hover below for a hint.
+
+# Clean-up
+Uninstall flask_debugtoolbar and autopep8 via pip3
