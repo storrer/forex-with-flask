@@ -1,0 +1,12 @@
+
+  Id     Duration CommandLine
+  --     -------- -----------
+   1        0.144 & "c:/Desktop/20 Assessment/my-forex-project/venv/Scripts…
+   2        0.017 deactivate
+   3        0.683 rm -r -Force venv
+   4        0.098 deactivate
+   5        0.035 ls
+   6        7.184 python -m venv venv
+   7        0.028 venv/Scripts/activate.ps1
+   8        2.960 pip3 install flask
+
