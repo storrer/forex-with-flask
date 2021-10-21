@@ -12,3 +12,5 @@ valid_currency_codes = ["EUR", "IDR", "BGN", "ILS", "GBP", "DKK", "CAD",
                         "AUD", "CHF", "KRW", "CNY", "TRY", "HRK", "NZD",
                         "THB", "USD", "NOK", "RUB", "INR", "MXN", "CZK",
                         "BRL", "PLN", "PHP", "ZAR"]
+
+app = Flask(__name__)
