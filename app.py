@@ -14,3 +14,14 @@ valid_currency_codes = ["EUR", "IDR", "BGN", "ILS", "GBP", "DKK", "CAD",
                         "BRL", "PLN", "PHP", "ZAR"]
 
 app = Flask(__name__)
+
+@app.route("/")
+def homepage_form():
+    """Shows the homepage with the foreign currency converter form."""
+    return render_template("form-page.html")
+
+@app.route("/results", methods= ["POST"])
+def results_page():
+    """"Displays the results of the currency conversion process."""
+
+    return render_template("results-page.html")
