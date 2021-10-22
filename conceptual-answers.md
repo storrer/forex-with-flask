@@ -35,6 +35,6 @@ You can access the data in the body with request.get_data() or request.get_json(
 A cookie is a small key value pair that are used to give multiple requests a kind of state-ness. The are stored in the browser with variable expiration dates.
 
 # What is the session object in Flask?
-> A session makes it possible to remember information from one request to another. The way Flask does this is by using a signed cookie. The user can look at the session contents, but can’t modify it unless they know the secret key.
+> A session makes it possible to remember information from one request to another. The way Flask does this is by using a signed cookie. The user can look at the session contents, but can’t modify it unless they know the secret key. We have access to the session object in Jinja templates.
 # What does Flask's `jsonify()` do?
 `flask.json.jsonify()` accepts one value, a list, or other data types as arguments. It turns them into a JSON string and returns that JSON object wrapped in a Response.
