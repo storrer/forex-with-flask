@@ -4,7 +4,7 @@ certifi==2021.10.8
 charset-normalizer==2.0.7
 click==8.0.3
 colorama==0.4.4
-Flask==2.0.2
+Flask==2.2.5
 forex-python==1.6
 idna==3.3
 itsdangerous==2.0.1
